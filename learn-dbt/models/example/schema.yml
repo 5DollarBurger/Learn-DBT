@@ -55,3 +55,24 @@ models:
         tests:
           - unique
           - not_null
+
+  - name: playing_with_tests
+    description: "Model to run tests on"
+    columns:
+      - name: c_custkey
+        description: "Customer key"
+        tests:
+          - unique
+          - not_null
+      - name: c_mktsegment
+        description: "Market segment"
+        tests:
+          - accepted_values:
+              values:
+                [
+                  "BUILDING",
+                  "AUTOMOBILE",
+                  "MACHINERY",
+                  "HOUSEHOLD",
+                  "FURNITURE",
+                ]
