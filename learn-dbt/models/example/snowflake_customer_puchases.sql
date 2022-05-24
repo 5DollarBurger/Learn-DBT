@@ -1,5 +1,3 @@
-{{ config(materialized='table') }}
-
 select
     c_custkey cust_key,
     c.c_name name,

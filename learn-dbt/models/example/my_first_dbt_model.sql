@@ -6,8 +6,12 @@
 
     Try changing "table" to "view" below
 */
-
-{{ config(materialized='table') }}
+{{  config(
+  materialized='table',
+  alias='first_model'
+)  }}
+-- schema='darrell_test',
+-- database='analytics_test'
 
 with source_data as (
 

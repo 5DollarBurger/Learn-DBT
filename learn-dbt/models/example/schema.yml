@@ -8,7 +8,9 @@ models:
         description: "The primary key for this table"
         tests:
           - unique
-          - not_null
+          - accepted_values:
+              values: [1, 2]
+              quote: False
 
   - name: my_second_dbt_model
     description: "A starter dbt model"
@@ -17,7 +19,9 @@ models:
         description: "The primary key for this table"
         tests:
           - unique
-          - not_null
+          - relationships:
+              to: ref('my_first_dbt_model')
+              field: id
 
   - name: snowflake_customer_puchases
     description: "The total purchase value for each customer in snowflake sample data"
@@ -39,4 +43,15 @@ models:
       - name: cum_sales
         description: "Total sales so far"
         tests:
+          - not_null
+
+  - name: dates
+
+  - name: incremental_time
+    description: "Table of seconds that has passed so far today"
+    columns:
+      - name: time
+        description: "Timestamp in datetime format"
+        tests:
+          - unique
           - not_null
