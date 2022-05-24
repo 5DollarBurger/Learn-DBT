@@ -1,5 +1,3 @@
-{{ config(materialized='table') }}
-
 with daily_sales_table as(
   select
       o_orderdate date,
@@ -14,3 +12,5 @@ select
     date,
     sum(daily_sales) over (order by date asc) cum_sales
 from daily_sales_table
+
+order by date
