@@ -45,8 +45,6 @@ models:
         tests:
           - not_null
 
-  - name: dates
-
   - name: incremental_time
     description: "Table of seconds that has passed so far today"
     columns:
